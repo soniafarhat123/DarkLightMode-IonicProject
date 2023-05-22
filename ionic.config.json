@@ -1,0 +1,7 @@
+{
+  "name": "darLightMode",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
