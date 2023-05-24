@@ -12,7 +12,7 @@ const useSwitchDarkMode = (): [boolean, () => void] => {
       }
     }
   }, [darkMode]);
-console.log('switch',darkMode)
+  console.log("switch", darkMode);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };

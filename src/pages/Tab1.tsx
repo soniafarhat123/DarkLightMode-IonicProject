@@ -20,18 +20,20 @@ import {
 } from "@ionic/react";
 import "./Tab1.css";
 import { moon, sunny } from "ionicons/icons";
-import useSwitchDarkMode from "../components/useSwitchDarkMode";
 import { useEffect } from "react";
 
-const Tab1: React.FC = () => {
+const Tab1: React.FC<{ darkMode: boolean; toggleDarkMode: () => void }> = ({
+  darkMode,
+  toggleDarkMode,
+}) => {
   //const toggleDarkModeHandler = () => document.body.classList.toggle("dark");
-  const [darkMode, toggleDarkMode] = useSwitchDarkMode();
-//console.log('Tab1',darkMode)
-useEffect(()=>{
-  console.log('Tab1',darkMode,toggleDarkMode)
-},[darkMode, toggleDarkMode])
+
+  //console.log('Tab1',darkMode)
+  useEffect(() => {
+    console.log("Tab1", darkMode, toggleDarkMode);
+  }, [darkMode, toggleDarkMode]);
   return (
-    <IonPage className={darkMode ? "dark" : "light"}>
+    <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Tab 1</IonTitle>
@@ -45,13 +47,14 @@ useEffect(()=>{
         </IonHeader>
         <IonList>
           <IonItem lines="none">
-          <IonIcon slot="start" icon={darkMode ? sunny : moon} />
+            <IonIcon slot="start" icon={darkMode ? sunny : moon} />
             <IonLabel>
               {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             </IonLabel>
             <IonToggle
               slot="end"
               name="darkMode"
+              checked={darkMode}
               onIonChange={toggleDarkMode}
             />
           </IonItem>

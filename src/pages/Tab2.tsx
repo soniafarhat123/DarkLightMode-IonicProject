@@ -1,10 +1,4 @@
 import {
-  IonBadge,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
   IonContent,
   IonHeader,
   IonIcon,
@@ -12,20 +6,17 @@ import {
   IonLabel,
   IonList,
   IonPage,
-  IonSelect,
-  IonSelectOption,
   IonTitle,
-  IonToggle,
   IonToolbar,
 } from "@ionic/react";
 import "./Tab2.css";
 import { moon, sunny } from "ionicons/icons";
-import useSwitchDarkMode from "../components/useSwitchDarkMode";
+import useSwitchDarkMode from "../hooks/useSwitchDarkMode";
 
-const Tab2: React.FC = () => {
-  //const toggleDarkModeHandler = () => document.body.classList.toggle("dark");
-  const [darkMode, toggleDarkMode] = useSwitchDarkMode();
-
+const Tab2 : React.FC<{ darkMode: boolean; toggleDarkMode: () => void }> = ({
+  darkMode,
+  toggleDarkMode,
+}) =>{
   return (
     <IonPage className={darkMode ? "dark" : "light"}>
       <IonHeader>
